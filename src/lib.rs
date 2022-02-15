@@ -383,6 +383,7 @@ macro_rules! submit {
             #[allow(non_upper_case_globals)]
             #[$crate::ctor]
             fn __init() {
+                #[used(linker)]
                 static __INVENTORY: $crate::Node = $crate::Node {
                     value: &{ $($value)* },
                     next: $crate::core::cell::UnsafeCell::new($crate::core::option::Option::None),
