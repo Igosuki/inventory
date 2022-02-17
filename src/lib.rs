@@ -379,7 +379,8 @@ macro_rules! collect {
 #[macro_export]
 macro_rules! submit {
     ($($value:tt)*) => {
-        const _: () = {
+        #[used(linker)]
+        static __INIT_FN: () = {
             #[allow(non_upper_case_globals)]
             #[$crate::ctor]
             fn __init() {
